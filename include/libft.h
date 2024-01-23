@@ -56,7 +56,7 @@ void	ft_putendl_fd(char *s, int fd);
 void	ft_putnbr_fd(int n, int fd);
 int		ft_strlastncmp(const char *str1, const char *str2, size_t n);
 size_t	ft_count_line_fd(const char *file_name);
-char	**ft_read_file(const char *file_name);
+char	**ft_read_file(const char *file_name, int new_line);
 
 typedef struct s_list
 {

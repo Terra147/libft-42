@@ -12,7 +12,7 @@
 
 #include "libft.h"
 
-char	**ft_read_file(const char *file_name)
+char	**ft_read_file(const char *file_name, int new_line)
 {
 	int		fd;
 	char	*str;
@@ -27,6 +27,8 @@ char	**ft_read_file(const char *file_name)
 	i = 0;
 	while (str)
 	{
+		if (!new_line)
+			str[ft_strlen(str) - 1] = '\0';
 		strs[i++] = str;
 		str = get_next_line(fd);
 	}

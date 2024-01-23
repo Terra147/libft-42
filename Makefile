@@ -24,7 +24,8 @@ SRC = ft_atoi.c ft_isascii.c ft_memcmp.c ft_putendl_fd.c ft_strdup.c ft_strlen.c
 	ft_count_line_fd.c \
 	ft_read_file.c \
 	ft_free_strs.c \
-	ft_strslen.c
+	ft_strslen.c \
+	ft_strcchr.c
 
 HEADER = include/ft_printf.h include/get_next_line.h include/libft.h
 

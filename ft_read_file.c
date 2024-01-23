@@ -1,37 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_count_line_fd.c                                 :+:      :+:    :+:   */
+/*   ft_read_file.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: awadeng <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/23 15:49:42 by awadeng           #+#    #+#             */
-/*   Updated: 2024/01/23 17:14:26 by awadeng          ###   ########.fr       */
+/*   Created: 2024/01/23 17:37:15 by awadeng           #+#    #+#             */
+/*   Updated: 2024/01/23 17:58:49 by awadeng          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_count_line_fd(const char *file_name)
+char	**ft_read_file(const char *file_name)
 {
-	size_t	count;
-	char	*str;
 	int		fd;
+	char	*str;
+	char	**strs;
+	int		i;
 
-	count = 0;
+	strs = malloc(sizeof(char *) * (ft_count_line_fd(file_name) + 1));
+	if (!strs)
+		return (NULL);
 	fd = open(file_name, O_RDONLY);
-	if (fd == -1)
-	{
-		perror("Error\n");
-		exit(1);
-	}
 	str = get_next_line(fd);
+	i = 0;
 	while (str)
 	{
-		count++;
-		free(str);
+		strs[i++] = str;
 		str = get_next_line(fd);
 	}
+	strs[i] = NULL;
 	close(fd);
-	return (count);
+	return (strs);
 }

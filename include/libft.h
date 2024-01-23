@@ -55,7 +55,8 @@ void	ft_putstr_fd(char *s, int fd);
 void	ft_putendl_fd(char *s, int fd);
 void	ft_putnbr_fd(int n, int fd);
 int		ft_strlastncmp(const char *str1, const char *str2, size_t n);
-size_t	ft_count_line_fd(char *file_name);
+size_t	ft_count_line_fd(const char *file_name);
+char	**ft_read_file(const char *file_name);
 
 typedef struct s_list
 {
@@ -72,5 +73,8 @@ void	ft_lstdelone(t_list *lst, void (*del)(void*));
 void	ft_lstclear(t_list **lst, void (*del)(void*));
 void	ft_lstiter(t_list *lst, void (*f)(void *));
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
+
+// utils function
+void	ft_free_strs(char **strs);
 
 #endif

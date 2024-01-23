@@ -27,7 +27,7 @@ char	**ft_read_file(const char *file_name, int new_line)
 	i = 0;
 	while (str)
 	{
-		if (!new_line)
+		if (!new_line && ft_strchr(str, '\n'))
 			str[ft_strlen(str) - 1] = '\0';
 		strs[i++] = str;
 		str = get_next_line(fd);
